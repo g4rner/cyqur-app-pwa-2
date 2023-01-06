@@ -1,0 +1,1180 @@
+
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Safely Store your Secrets</title>
+    <meta charset="UTF-8">
+    <link href="./c_assets/style/fonts.min.css" rel="stylesheet">
+    <link href="./c_assets/style/style.min.css" rel="stylesheet">
+    <link href="./c_assets/style/colors.min.css" rel="stylesheet">
+    <link href="./c_assets/style/wwwstyle.min.css" rel="stylesheet">
+    <link href="./c_assets/style/pwa-style.css?v=05012023" rel="stylesheet">
+    <link rel="manifest" href="/c_assets/manifest.json" crossorigin="use-credentials">
+    <meta name="theme-color" content="#317EFB" />
+    <!-- ios support-->
+    <link rel="apple-touch-icon" href="/c_assets/style/img/c128.png">
+    <meta name="apple-mobile-web-app-status-bar" content="#7fff00">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <script type="text/javascript">
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function () {
+                navigator.serviceWorker.register('/c_assets/js/sw.js').then(function (registration) {
+                    // Registration was successful
+                    console.log('ServiceWorker registration successful with scope: ', registration.scope);
+                }, function (err) {
+                    // registration failed :(
+                    console.log('ServiceWorker registration failed: ', err);
+                });
+            });
+        }
+
+    </script>
+</head>
+
+<body class="thebody pt128" id="thebody">
+    <div class="flex-container-clean">
+        <div class="navbar height128" id="navbar">
+            <div class="big-logo-container" id="big-logo">
+                <svg width="122" height="40" viewBox="0 0 122 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M103.612 7.19238V31.1463H98.6691C97.7457 31.1463 97.0396 30.4402 97.0396 29.5168V28.3218C95.1928 30.4402 92.5313 31.5265 89.5981 31.5265C83.5689 31.5265 79.3865 28.1588 79.3865 20.7717V7.24672H84.7096C85.633 7.24672 86.3391 7.95284 86.3391 8.87624V19.7397C86.3391 23.7592 88.1316 25.5516 91.1733 25.5516C94.378 25.5516 96.7137 23.4876 96.7137 19.0879V8.87624C96.7137 7.95284 97.4198 7.24672 98.3432 7.24672H103.612V7.19238Z"
+                          fill="url(#paint0_linear_708_1600)" />
+                    <path d="M121.917 6.81226V13.2217C121.319 13.1674 120.885 13.1131 120.341 13.1131C116.539 13.1131 113.986 15.2314 113.986 19.7941V29.4625C113.986 30.3859 113.28 31.0921 112.357 31.0921H107.034V7.13818H112.031C112.954 7.13818 113.66 7.8443 113.66 8.7677V10.2886C115.344 8.06157 118.223 6.81226 121.917 6.81226Z"
+                          fill="url(#paint1_linear_708_1600)" />
+                    <path d="M52.9882 7.19238L41.0385 33.4819C38.9201 38.4791 36.2585 40 32.6193 40C30.338 40 28.0567 39.2396 26.5901 37.8273L27.5135 36.1978C27.948 35.4373 28.9257 35.1657 29.7405 35.6003C30.6096 36.0891 31.6416 36.3607 32.6736 36.3607C34.7376 36.3607 35.987 35.4373 37.1819 32.7215C37.6708 31.6894 37.6708 30.4945 37.1819 29.4081L26.753 7.19238H30.1207C30.7725 7.19238 31.37 7.5726 31.6416 8.17009L40.2237 26.4207L48.4799 8.17009C48.7515 7.5726 49.349 7.19238 49.9465 7.19238H52.9882Z"
+                          fill="white" />
+                    <path d="M69.2833 8.82186V9.96254C67.5451 7.84417 64.9922 6.86646 61.7875 6.86646C60.8098 6.86646 59.8321 6.97508 58.963 7.19235C58.2026 7.3553 57.6051 7.89849 57.2792 8.60461L50.8697 23.053C50.6525 23.5418 50.6525 24.085 50.8697 24.5739C52.7165 28.9192 56.8447 31.5808 61.7875 31.5808C64.7206 31.5808 67.2192 30.6574 68.9574 28.702V38.2618C68.9574 39.1852 69.6635 39.8913 70.5869 39.8913H75.91V7.30099H70.9128C69.9894 7.19235 69.2833 7.89847 69.2833 8.82186ZM62.9825 25.7688C59.5062 25.7688 56.8446 23.2702 56.8446 19.1421C56.8446 15.014 59.5062 12.5154 62.9825 12.5154C66.4045 12.5154 69.066 15.014 69.066 19.1421C69.066 23.2702 66.4045 25.7688 62.9825 25.7688Z"
+                          fill="url(#paint2_linear_708_1600)" />
+                    <path d="M28.5455 21.9667C24.9062 25.7689 21.8102 27.9416 16.7043 27.9416C9.69742 27.9416 4.53727 22.8358 4.53727 15.9375C4.53727 9.03918 9.75174 4.58515 16.7043 3.93334C17.8993 3.82471 18.9857 3.82471 20.1263 3.93334L18.3339 0.131136L18.2795 0.0768319C17.7363 0.0225147 17.2475 -0.0318224 16.7043 0.0224948C7.30746 0.402715 0.083252 6.86648 0.083252 15.9918C0.083252 25.1171 7.14451 31.961 16.7043 31.961C22.2447 31.961 27.2419 29.4081 30.2293 25.6602L28.5455 21.9667Z"
+                          fill="white" />
+                    <defs>
+                        <linearGradient id="paint0_linear_708_1600" x1="79.3321" y1="31.7438" x2="103.874" y2="7.40091"
+                                        gradientUnits="userSpaceOnUse">
+                            <stop stop-color="#A759C1" />
+                            <stop offset="1" stop-color="#7AB6DF" />
+                        </linearGradient>
+                        <linearGradient id="paint1_linear_708_1600" x1="107.034" y1="31.2007" x2="132.883" y2="18.1605"
+                                        gradientUnits="userSpaceOnUse">
+                            <stop stop-color="#8491D7" />
+                            <stop offset="1" stop-color="#7AB8DF" />
+                        </linearGradient>
+                        <linearGradient id="paint2_linear_708_1600" x1="55.3738" y1="29.9877" x2="86.7559" y2="14.4099"
+                                        gradientUnits="userSpaceOnUse">
+                            <stop stop-color="#D56765" />
+                            <stop offset="1" stop-color="#9A62CE" />
+                        </linearGradient>
+                    </defs>
+                </svg>
+            </div>
+            <div class="navbar-container top64" id="navbar-container">
+                <div class="app-logo hiddo" id="app-logo">
+                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"
+                         xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <rect width="32" height="32" fill="url(#pattern0)" />
+                        <defs>
+                            <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
+                                <use xlink:href="#image0_680_2937" transform="scale(0.0078125)" />
+                            </pattern>
+                            <image id="image0_680_2937" width="128" height="128"
+                                   xlink:href="data:image/png;base64,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" />
+                        </defs>
+                    </svg>
+                </div>
+                <div class="navbar-links flex1" id="navbar-links">
+                    <div class="link-wrapper mp tac flex1" id="lk2">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 6C15.79 6 19.17 8.13 20.82 11.5C19.17 14.87 15.79 17 12 17C8.21 17 4.83 14.87 3.18 11.5C4.83 8.13 8.21 6 12 6ZM12 4C7 4 2.73 7.11 1 11.5C2.73 15.89 7 19 12 19C17 19 21.27 15.89 23 11.5C21.27 7.11 17 4 12 4ZM12 9C13.38 9 14.5 10.12 14.5 11.5C14.5 12.88 13.38 14 12 14C10.62 14 9.5 12.88 9.5 11.5C9.5 10.12 10.62 9 12 9ZM12 7C9.52 7 7.5 9.02 7.5 11.5C7.5 13.98 9.52 16 12 16C14.48 16 16.5 13.98 16.5 11.5C16.5 9.02 14.48 7 12 7Z" />
+                        </svg>
+                        <div class="navbar-text" id="loko-expand">
+                            <span class="footlocker en2"></span>
+                        </div>
+                    </div>
+                    <div class="link-wrapper mp tac flex1" id="lk1">
+
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M18 8H17V6C17 3.24 14.76 1 12 1C9.24 1 7 3.24 7 6V8H6C4.9 8 4 8.9 4 10V20C4 21.1 4.9 22 6 22H18C19.1 22 20 21.1 20 20V10C20 8.9 19.1 8 18 8ZM9 6C9 4.34 10.34 3 12 3C13.66 3 15 4.34 15 6V8H9V6ZM18 20H6V10H18V20ZM12 17C13.1 17 14 16.1 14 15C14 13.9 13.1 13 12 13C10.9 13 10 13.9 10 15C10 16.1 10.9 17 12 17Z" />
+                        </svg>
+
+                        <div class="navbar-text" id="loko-sign-in">
+                            <span class="footlocker en3"></span>
+                        </div>
+                    </div>
+                    <div class="link-wrapper hiddo mp tac" id="lk4">
+
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M13 7H11V11H7V13H11V17H13V13H17V11H13V7ZM12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM12 20C7.59 20 4 16.41 4 12C4 7.59 7.59 4 12 4C16.41 4 20 7.59 20 12C20 16.41 16.41 20 12 20Z" />
+                        </svg>
+
+                        <div class="navbar-text" id="loko-add">
+                            <span class="footlocker en4"></span>
+                        </div>
+                    </div>
+                    <div class="link-wrapper hiddo mp tac" id="lk3">
+
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M21 7.28V5C21 3.9 20.1 3 19 3H5C3.89 3 3 3.9 3 5V19C3 20.1 3.89 21 5 21H19C20.1 21 21 20.1 21 19V16.72C21.59 16.37 22 15.74 22 15V9C22 8.26 21.59 7.63 21 7.28ZM20 9V15H13V9H20ZM5 19V5H19V7H13C11.9 7 11 7.9 11 9V15C11 16.1 11.9 17 13 17H19V19H5Z" />
+                            <path d="M16 13.5C16.8284 13.5 17.5 12.8284 17.5 12C17.5 11.1716 16.8284 10.5 16 10.5C15.1716 10.5 14.5 11.1716 14.5 12C14.5 12.8284 15.1716 13.5 16 13.5Z"
+                                  fill="#2C292B" />
+                        </svg>
+
+                        <div class="navbar-text" id="loko-vault">
+                            <span class="footlocker en5"></span> <span class="countx hiddo" id="countinvault"></span>
+                        </div>
+                    </div>
+                    <div class="link-wrapper hiddo mp tac" id="lk5">
+
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M19.4301 12.98C19.4701 12.66 19.5001 12.34 19.5001 12C19.5001 11.66 19.4701 11.34 19.4301 11.02L21.5401 9.37C21.7301 9.22 21.7801 8.95 21.6601 8.73L19.6601 5.27C19.5701 5.11 19.4001 5.02 19.2201 5.02C19.1601 5.02 19.1001 5.03 19.0501 5.05L16.5601 6.05C16.0401 5.65 15.4801 5.32 14.8701 5.07L14.4901 2.42C14.4601 2.18 14.2501 2 14.0001 2H10.0001C9.75008 2 9.54008 2.18 9.51008 2.42L9.13008 5.07C8.52008 5.32 7.96008 5.66 7.44008 6.05L4.95008 5.05C4.89008 5.03 4.83008 5.02 4.77008 5.02C4.60008 5.02 4.43008 5.11 4.34008 5.27L2.34008 8.73C2.21008 8.95 2.27008 9.22 2.46008 9.37L4.57008 11.02C4.53008 11.34 4.50008 11.67 4.50008 12C4.50008 12.33 4.53008 12.66 4.57008 12.98L2.46008 14.63C2.27008 14.78 2.22008 15.05 2.34008 15.27L4.34008 18.73C4.43008 18.89 4.60008 18.98 4.78008 18.98C4.84008 18.98 4.90008 18.97 4.95008 18.95L7.44008 17.95C7.96008 18.35 8.52008 18.68 9.13008 18.93L9.51008 21.58C9.54008 21.82 9.75008 22 10.0001 22H14.0001C14.2501 22 14.4601 21.82 14.4901 21.58L14.8701 18.93C15.4801 18.68 16.0401 18.34 16.5601 17.95L19.0501 18.95C19.1101 18.97 19.1701 18.98 19.2301 18.98C19.4001 18.98 19.5701 18.89 19.6601 18.73L21.6601 15.27C21.7801 15.05 21.7301 14.78 21.5401 14.63L19.4301 12.98ZM17.4501 11.27C17.4901 11.58 17.5001 11.79 17.5001 12C17.5001 12.21 17.4801 12.43 17.4501 12.73L17.3101 13.86L18.2001 14.56L19.2801 15.4L18.5801 16.61L17.3101 16.1L16.2701 15.68L15.3701 16.36C14.9401 16.68 14.5301 16.92 14.1201 17.09L13.0601 17.52L12.9001 18.65L12.7001 20H11.3001L11.1101 18.65L10.9501 17.52L9.89008 17.09C9.46008 16.91 9.06008 16.68 8.66008 16.38L7.75008 15.68L6.69008 16.11L5.42008 16.62L4.72008 15.41L5.80008 14.57L6.69008 13.87L6.55008 12.74C6.52008 12.43 6.50008 12.2 6.50008 12C6.50008 11.8 6.52008 11.57 6.55008 11.27L6.69008 10.14L5.80008 9.44L4.72008 8.6L5.42008 7.39L6.69008 7.9L7.73008 8.32L8.63008 7.64C9.06008 7.32 9.47008 7.08 9.88008 6.91L10.9401 6.48L11.1001 5.35L11.3001 4H12.6901L12.8801 5.35L13.0401 6.48L14.1001 6.91C14.5301 7.09 14.9301 7.32 15.3301 7.62L16.2401 8.32L17.3001 7.89L18.5701 7.38L19.2701 8.59L18.2001 9.44L17.3101 10.14L17.4501 11.27ZM12.0001 8C9.79008 8 8.00008 9.79 8.00008 12C8.00008 14.21 9.79008 16 12.0001 16C14.2101 16 16.0001 14.21 16.0001 12C16.0001 9.79 14.2101 8 12.0001 8ZM12.0001 14C10.9001 14 10.0001 13.1 10.0001 12C10.0001 10.9 10.9001 10 12.0001 10C13.1001 10 14.0001 10.9 14.0001 12C14.0001 13.1 13.1001 14 12.0001 14Z" />
+                        </svg>
+
+                        <div class="navbar-text" id="loko-settings">
+                            <span class="footlocker en6"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="centergutter">
+            <div class="flex-container-raw">
+                <div class="hr33" id="internet-status"></div>
+                <div class="hr33 pt"></div>
+            </div>
+            <div class="hiddo" id="section1">
+                <div class="boolcontainer">
+                    <form method="post">
+                        <div class="styled-input">
+                            <input type="password" required class="likeatextbox inputText boxshad ltr en68" id="thepwd"
+                                   name="thepwd" placeholder="Enter a password" />
+                            <label><span class="en7"></span></label>
+                            <span></span>
+                            <div class="meyes eyeeye" id="thepwdeye"></div>
+                        </div>
+                        <p class="mp tac hiddo error-input" id="messp">&nbsp;</p>
+
+                        <div class="styled-input">
+                            <input type="text" required class="likeatextbox inputText boxshad ltr en69" id="thetoken"
+                                   name="thetoken"
+                                   placeholder="Enter a token for blockchain proof of record"></textarea>
+                            <label><span class="en8"></span></label>
+                            <span></span>
+                            <div class="teyes eyeeye" id="tho"></div>
+                        </div>
+                        <p class="mp tac hiddo error-input" id="token-error-indicator">&nbsp;</p>
+                        <div class="login-actions-container">
+                            <button class="button primary-button en3" id='signInButton' type="submit">Register</button>
+
+                            <div class="logged-in-indicator en76 hiddo" id="loggedInIndicator">
+                                <div class="greenDot"></div>You are signed in
+                            </div>
+                            <div class="delete-button-container hiddo" id="deletePasswordButtonContainer">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M3 7H5H21" fill="#777777" />
+                                    <path d="M3 7H5H21" stroke="#777777" stroke-width="2" stroke-linecap="round"
+                                          stroke-linejoin="round" />
+                                    <path d="M8 7V5C8 4.46957 8.21071 3.96086 8.58579 3.58579C8.96086 3.21071 9.46957 3 10 3H14C14.5304 3 15.0391 3.21071 15.4142 3.58579C15.7893 3.96086 16 4.46957 16 5V7M19 7V19C19 19.5304 18.7893 20.0391 18.4142 20.4142C18.0391 20.7893 17.5304 21 17 21H7C6.46957 21 5.96086 20.7893 5.58579 20.4142C5.21071 20.0391 5 19.5304 5 19V7H19Z"
+                                          stroke="#777777" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                                <button class="button tertiary-button en77" id='deletePasswordButton'>
+                                    Delete
+                                    password
+                                </button>
+                            </div>
+                        </div>
+
+                        <p class="mp tac" id="messt">&nbsp;</p>
+                    </form>
+                </div>
+            </div>
+            <div class="hiddo" id="section2">
+                <div class="view">
+                    <div class="encrypted">
+                        <div class="encrypted__secret">
+                            <div class="styled-input wide borderRadius-small">
+                                <textarea rows="6" type="text" required class="boxshad ltr en72" id="pastedin"
+                                          name="pastedin"></textarea>
+                                <span></span>
+                                <div class="pasteButton">
+                                    <button id="pasteButtonEncryptedSecret" class="en75">Paste</button>
+                                </div>
+                                <div class="resizeButton">
+                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                         xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M15.3333 12.3477V15.3343H12.3467L15.3333 12.3477Z" fill="#B4B4B4" />
+                                        <path d="M15.333 7.67969V10.3197L10.3197 15.333H7.67969L15.333 7.67969Z"
+                                              fill="#B4B4B4" />
+                                        <path d="M15.3327 3.01367V5.65368L5.65269 15.3337H3.0127L15.3327 3.01367Z"
+                                              fill="#B4B4B4" />
+                                    </svg>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="encrypted__password">
+                            <div class="styled-input borderRadius-small">
+                                <input autocomplete="new-password" class="likeatextbox inputText boxshad en74" id="ipwd"
+                                       name="ipwd" required="" type="password">
+                                <span></span>
+                                <div class="ieyes eyeeye" id="iho"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="decrypted">
+                        <h3 class="decrypted__heading en74">Decrypted secret</h3>
+                        <div class="decrypted__secret">
+                            <textarea class="dedatac boxshad" id="dedata" name="dedata" readonly="readonly"
+                                      rows="10"></textarea>
+                        </div>
+                    </div>
+                    <div class="divider__fingerPrint">
+                        <img src="/assets/img/CYQUR_FingerPrint 1.jpg" alt="fingerPrint background"
+                             class="divider__fingerprint-img">
+                    </div>
+                    <div class="meta__container">
+                        <h2 class="meta__header">
+                            META
+                        </h2>
+                        <div class="meta__data">
+                            <div class="meta-head" id="demeta"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="hiddo" id="workarea">
+                <div class="hiddo mp" id="section3">
+                    <div class="tac">
+                        <div class="tac__numberOfSecrets">
+                            <span class="" id="secretsCount"></span>
+                            <span class="en80">Secrets</span>
+                        </div>
+                        <span id="refreshbut">
+                            <button class="button primary-button en79"
+                                    id="refreshbut">
+                                Refresh
+                            </button>
+                        </span>
+                    </div>
+                    <div class="gridc" id="gridd"></div>
+                    <div class="midscreen" id="gridmess"></div>
+                    <div class="footerpad"></div>
+                </div>
+                <div class="hiddo" id="section4">
+                    <div class="titlex">
+                        <button id="addGeneral" class="en20 add-buttons active" value="c1"></button>
+                        <button id="addSeedPhrases" class="en21 add-buttons" value="c2"></button>
+                        <button id="addImportPackets" class="en22 add-buttons" value="c3"></button>
+                    </div>
+                    <div class="hiddo" id="uplood">
+                        <div class="upload-packets-container">
+                            <form id="upload" name="upload">
+                                <div class="drop_zone_containerx">
+                                    <div class="drop-zone">
+                                        <svg width="49" height="48" viewBox="0 0 49 48" fill="none"
+                                             xmlns="http://www.w3.org/2000/svg">
+                                            <g clip-path="url(#clip0_581_9279)">
+                                                <path d="M39.2 20.08C37.84 13.18 31.78 8 24.5 8C18.72 8 13.7 11.28 11.2 16.08C5.18 16.72 0.5 21.82 0.5 28C0.5 34.62 5.88 40 12.5 40H38.5C44.02 40 48.5 35.52 48.5 30C48.5 24.72 44.4 20.44 39.2 20.08ZM38.5 36H12.5C8.08 36 4.5 32.42 4.5 28C4.5 23.9 7.56 20.48 11.62 20.06L13.76 19.84L14.76 17.94C16.66 14.28 20.38 12 24.5 12C29.74 12 34.26 15.72 35.28 20.86L35.88 23.86L38.94 24.08C42.06 24.28 44.5 26.9 44.5 30C44.5 33.3 41.8 36 38.5 36ZM16.5 26H21.6V32H27.4V26H32.5L24.5 18L16.5 26Z"
+                                                      fill="#D5D5D5" />
+                                            </g>
+                                            <defs>
+                                                <clipPath id="clip0_581_9279">
+                                                    <rect width="48" height="48" fill="white"
+                                                          transform="translate(0.5)" />
+                                                </clipPath>
+                                            </defs>
+                                        </svg>
+                                        <span class="drop-zone__prompt en31">Drop file here or click to upload</span>
+                                        <input class="drop-zone__input" id="file" name="file" type="file" multiple>
+                                    </div>
+                                </div>
+                                <button class="button secondary-button"><span class="en32"></span></button>
+                                <div class="tac" id="fmess"></div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="showy" id="addwork">
+                        <div class="showy" id="enter-meta">
+                            <div class="boolcontainer">
+
+                                <div class="showy" id="create1">
+                                    <div class="styled-input wide">
+                                        <input type="password" required class="likeatextbox inputText boxshad ltr en70"
+                                               id="thepwd2" name="thepwd2" required="" placeholder="Enter a password" />
+                                        <label><span class="en24"></span></label>
+                                        <span></span>
+                                        <div class="generatebutton" id="rho">
+
+                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                                 xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M14 12H13V8.8198L9.15728 8.05126C8.98683 8.01717 8.81343 8 8.63961 8C7.18179 8 6 9.18179 6 10.6396V13H4V10.6396C4 8.07722 6.07722 6 8.63961 6C8.94514 6 9.24992 6.03018 9.54951 6.0901L13 6.7802V4H14L18 8L14 12Z"
+                                                      fill="#B4B4B4" />
+                                                <path d="M20 11V13.3604C20 15.9228 17.9228 18 15.3604 18C15.0549 18 14.7501 17.9698 14.4505 17.9099L11 17.2198V20H10L6 16L10 12H11V15.1802L14.8427 15.9487C15.0132 15.9828 15.1866 16 15.3604 16C16.8182 16 18 14.8182 18 13.3604V11H20Z"
+                                                      fill="#B4B4B4" />
+                                            </svg>
+
+                                        </div>
+                                        <div class="eyes eyeeye" id="thepwd2eye">
+                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                                 xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                      d="M4 12L7.07945 8.30466C8.29638 6.84434 10.0991 6 12 6C13.9009 6 15.7036 6.84434 16.9206 8.30466L20 12L16.9206 15.6953C15.7036 17.1557 13.9009 18 12 18C10.0991 18 8.29638 17.1557 7.07945 15.6953L4 12ZM12 15C13.6569 15 15 13.6569 15 12C15 10.3431 13.6569 9 12 9C10.3431 9 9 10.3431 9 12C9 13.6569 10.3431 15 12 15Z"
+                                                      fill="#B4B4B4" />
+                                            </svg>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="styled-input wide">
+                                    <input type="text" required class="likeatextbox inputText boxshad ltr en71"
+                                           id="tags" name="tags" required="" placeholder="Enter a password" />
+                                    <label><span class="en25"></span></label>
+                                    <div class="pasteButton">
+                                        <button id="pasteButtonTags" class="en75">Paste</button>
+                                    </div>
+                                </div>
+                                <div class="hiddo" id="create2">
+                                    <div class="seed-phrase-container">
+                                        <span class="en41 seeds-title"></span>
+                                        <div class="seed-flex">
+                                            <div class="seed-number">
+                                                Pin
+                                            </div>
+                                            <div class="seed-input">
+                                                <input class="seedbox en78" id="seed0a" placeholder="Enter">
+                                            </div>
+                                            <div class="seed-input">
+                                                <input class="seedbox en39" id="seed0b" placeholder="Repeat">
+                                            </div>
+                                        </div>
+                                        <div class="seed-flex">
+                                            <div class="seed-number">
+                                                # 1
+                                            </div>
+                                            <div class="seed-input">
+                                                <input placeholder="Enter..." class="seedbox en78" id="seed1a">
+                                            </div>
+                                            <div class="seed-input">
+                                                <input class="seedbox en39" id="seed1b" placeholder="Repeat">
+                                            </div>
+                                        </div>
+                                        <div class="seed-flex">
+                                            <div class="seed-number">
+                                                # 2
+                                            </div>
+                                            <div class="seed-input">
+                                                <input placeholder="Enter..." class="seedbox en78" id="seed2a">
+                                            </div>
+                                            <div class="seed-input">
+                                                <input class="seedbox en39" id="seed2b" placeholder="Repeat">
+                                            </div>
+                                        </div>
+                                        <div class="seed-flex">
+                                            <div class="seed-number">
+                                                # 3
+                                            </div>
+                                            <div class="seed-input">
+                                                <input placeholder="Enter..." class="seedbox en78" id="seed3a">
+                                            </div>
+                                            <div class="seed-input">
+                                                <input class="seedbox en39" id="seed3b" placeholder="Repeat">
+                                            </div>
+                                        </div>
+                                        <div class="seed-flex">
+                                            <div class="seed-number">
+                                                # 4
+                                            </div>
+                                            <div class="seed-input">
+                                                <input placeholder="Enter..." class="seedbox en78" id="seed4a">
+                                            </div>
+                                            <div class="seed-input">
+                                                <input class="seedbox en39" id="seed4b" placeholder="Repeat">
+                                            </div>
+                                        </div>
+                                        <div class="seed-flex">
+                                            <div class="seed-number">
+                                                # 5
+                                            </div>
+                                            <div class="seed-input">
+                                                <input placeholder="Enter..." class="seedbox en78" id="seed5a">
+                                            </div>
+                                            <div class="seed-input">
+                                                <input class="seedbox en39" id="seed5b" placeholder="Repeat">
+                                            </div>
+                                        </div>
+                                        <div class="seed-flex">
+                                            <div class="seed-number">
+                                                # 6
+                                            </div>
+                                            <div class="seed-input">
+                                                <input placeholder="Enter..." class="seedbox en78" id="seed6a">
+                                            </div>
+                                            <div class="seed-input">
+                                                <input class="seedbox en39" id="seed6b" placeholder="Repeat">
+                                            </div>
+                                        </div>
+                                        <div class="seed-flex">
+                                            <div class="seed-number">
+                                                # 7
+                                            </div>
+                                            <div class="seed-input">
+                                                <input placeholder="Enter..." class="seedbox en78" id="seed7a">
+                                            </div>
+                                            <div class="seed-input">
+                                                <input class="seedbox en39" id="seed7b" placeholder="Repeat">
+                                            </div>
+                                        </div>
+                                        <div class="seed-flex">
+                                            <div class="seed-number">
+                                                # 8
+                                            </div>
+                                            <div class="seed-input">
+                                                <input placeholder="Enter..." class="seedbox en78" id="seed8a">
+                                            </div>
+                                            <div class="seed-input">
+                                                <input class="seedbox en39" id="seed8b" placeholder="Repeat">
+                                            </div>
+                                        </div>
+                                        <div class="seed-flex">
+                                            <div class="seed-number">
+                                                # 9
+                                            </div>
+                                            <div class="seed-input">
+                                                <input placeholder="Enter..." class="seedbox en78" id="seed9a">
+                                            </div>
+                                            <div class="seed-input">
+                                                <input class="seedbox en39" id="seed9b" placeholder="Repeat">
+                                            </div>
+                                        </div>
+                                        <div class="seed-flex">
+                                            <div class="seed-number">
+                                                # 10
+                                            </div>
+                                            <div class="seed-input">
+                                                <input placeholder="Enter..." class="seedbox en78" id="seed10a">
+                                            </div>
+                                            <div class="seed-input">
+                                                <input class="seedbox en39" id="seed10b" placeholder="Repeat">
+                                            </div>
+                                        </div>
+                                        <div class="seed-flex">
+                                            <div class="seed-number">
+                                                # 11
+                                            </div>
+                                            <div class="seed-input">
+                                                <input placeholder="Enter..." class="seedbox en78" id="seed11a">
+                                            </div>
+                                            <div class="seed-input">
+                                                <input class="seedbox en39" id="seed11b" placeholder="Repeat">
+                                            </div>
+                                        </div>
+                                        <div class="seed-flex">
+                                            <div class="seed-number">
+                                                # 12
+                                            </div>
+                                            <div class="seed-input">
+                                                <input placeholder="Enter..." class="seedbox en78" id="seed12a">
+                                            </div>
+                                            <div class="seed-input">
+                                                <input class="seedbox en39" id="seed12b" placeholder="Repeat">
+                                            </div>
+                                        </div>
+                                        <div class="seed-flex">
+                                            <div class="seed-number">
+                                                # 13
+                                            </div>
+                                            <div class="seed-input">
+                                                <input placeholder="Enter..." class="seedbox en78" id="seed13a">
+                                            </div>
+                                            <div class="seed-input">
+                                                <input class="seedbox en39" id="seed13b" placeholder="Repeat">
+                                            </div>
+                                        </div>
+                                        <div class="seed-flex">
+                                            <div class="seed-number">
+                                                # 14
+                                            </div>
+                                            <div class="seed-input">
+                                                <input placeholder="Enter..." class="seedbox en78" id="seed14a">
+                                            </div>
+                                            <div class="seed-input">
+                                                <input class="seedbox en39" id="seed14b" placeholder="Repeat">
+                                            </div>
+                                        </div>
+                                        <div class="seed-flex">
+                                            <div class="seed-number">
+                                                # 15
+                                            </div>
+                                            <div class="seed-input">
+                                                <input placeholder="Enter..." class="seedbox en78" id="seed15a">
+                                            </div>
+                                            <div class="seed-input">
+                                                <input class="seedbox en39" id="seed15b" placeholder="Repeat">
+                                            </div>
+                                        </div>
+                                        <div class="seed-flex">
+                                            <div class="seed-number">
+                                                # 16
+                                            </div>
+                                            <div class="seed-input">
+                                                <input placeholder="Enter..." class="seedbox en78" id="seed16a">
+                                            </div>
+                                            <div class="seed-input">
+                                                <input class="seedbox en39" id="seed16b" placeholder="Repeat">
+                                            </div>
+                                        </div>
+                                        <div class="seed-flex">
+                                            <div class="seed-number">
+                                                # 17
+                                            </div>
+                                            <div class="seed-input">
+                                                <input placeholder="Enter..." class="seedbox en78" id="seed17a">
+                                            </div>
+                                            <div class="seed-input">
+                                                <input class="seedbox en39" id="seed17b" placeholder="Repeat">
+                                            </div>
+                                        </div>
+                                        <div class="seed-flex">
+                                            <div class="seed-number">
+                                                # 18
+                                            </div>
+                                            <div class="seed-input">
+                                                <input placeholder="Enter..." class="seedbox en78" id="seed18a">
+                                            </div>
+                                            <div class="seed-input">
+                                                <input class="seedbox en39" id="seed18b" placeholder="Repeat">
+                                            </div>
+                                        </div>
+                                        <div class="seed-flex">
+                                            <div class="seed-number">
+                                                # 19
+                                            </div>
+                                            <div class="seed-input">
+                                                <input placeholder="Enter..." class="seedbox en78" id="seed19a">
+                                            </div>
+                                            <div class="seed-input">
+                                                <input class="seedbox en39" id="seed19b" placeholder="Repeat">
+                                            </div>
+                                        </div>
+                                        <div class="seed-flex">
+                                            <div class="seed-number">
+                                                # 20
+                                            </div>
+                                            <div class="seed-input">
+                                                <input placeholder="Enter..." class="seedbox en78" id="seed20a">
+                                            </div>
+                                            <div class="seed-input">
+                                                <input class="seedbox en39" id="seed20b" placeholder="Repeat">
+                                            </div>
+                                        </div>
+                                        <div class="seed-flex">
+                                            <div class="seed-number">
+                                                # 21
+                                            </div>
+                                            <div class="seed-input">
+                                                <input placeholder="Enter..." class="seedbox en78" id="seed21a">
+                                            </div>
+                                            <div class="seed-input">
+                                                <input class="seedbox en39" id="seed21b" placeholder="Repeat">
+                                            </div>
+                                        </div>
+                                        <div class="seed-flex">
+                                            <div class="seed-number">
+                                                # 22
+                                            </div>
+                                            <div class="seed-input">
+                                                <input placeholder="Enter..." class="seedbox en78" id="seed22a">
+                                            </div>
+                                            <div class="seed-input">
+                                                <input class="seedbox en39" id="seed22b" placeholder="Repeat">
+                                            </div>
+                                        </div>
+                                        <div class="seed-flex">
+                                            <div class="seed-number">
+                                                # 23
+                                            </div>
+                                            <div class="seed-input">
+                                                <input placeholder="Enter..." class="seedbox en78" id="seed23a" />
+                                            </div>
+                                            <div class="seed-input">
+                                                <input class="seedbox en39" id="seed23b" placeholder="Repeat" />
+                                            </div>
+                                        </div>
+                                        <div class="seed-flex">
+                                            <div class="seed-number">
+                                                # 24
+                                            </div>
+                                            <div class="seed-input">
+                                                <input placeholder="Enter..." class="seedbox en78" id="seed24a">
+                                            </div>
+                                            <div class="seed-input">
+                                                <input class="seedbox en39" id="seed24b" placeholder="Repeat">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="contl">
+
+                                    <div class="styled-input wide">
+                                        <textarea rows="6" type="text" required class="boxshad ltr en26" id="ddata"
+                                                  name="ddata" required="" placeholder="..."></textarea>
+                                        <label><span class="en73"></span></label>
+                                        <span></span>
+                                        <div class="pasteButton">
+                                            <button id="pasteButtonSecret" class="en75">Paste</button>
+                                        </div>
+                                    </div>
+
+                                    <div class="hiddo error-input" id="ddata-secret-message">
+                                        Please enter your secret
+                                    </div>
+                                    <div class="hiddo error-input" id="ddata-tags-message">
+                                        Please enter tags
+                                    </div>
+                                    <div class="hiddo error-input" id="ddata-seeds-message">
+                                        All seeds needs to match
+                                    </div>
+                                    <div class="hiddo error-input" id="ddata-password-message">
+                                        Please enter your password
+                                    </div>
+                                    <!-- 	<label class="float-lable"><span id="en26"></span></label>
+                                    <textarea class="boxshad ltr" id="ddata" name="ddata" rows="6"></textarea> -->
+                                </div>
+                                <div class="creategroup">
+                                    <button class="button primary-button" id="crud" name="crud"
+                                            value="Add Chain Item">
+                                        <span class="en28"></span>
+                                    </button>
+                                    <button class="button secondary-button" id="crudclear" name="crudclear"
+                                            value="Reset">
+                                        <span class="en29"></span>
+                                    </button>
+                                </div>
+                                <div class="mp statuz secure-message-response" id="messc"></div>
+                                <div class="mp statuz secure-message-response hiddo" id="messc-bc">
+                                    Token is invalid, are you sure you want to continue?
+                                    <div class="button-actions">
+                                        <button class="button primary-button" id="on-invalid-token-continue">Yes</button>
+                                        <button class="button primary-button" id="on-invalid-token-stop">No</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="add-encrypted-field">
+                            <p class="add-encrypted-title en18">HASH OUTPUT</p>
+                            <div class="contl">
+                                <textarea class="dedatac boxshad" id="edata" name="edata" placeholder=""
+                                          readonly="readonly" rows="6"></textarea>
+                            </div>
+                        </div>
+                        <div id="add-fingerprint" class="showy divider__fingerPrint"
+                             style="max-height:500px; height:100%;">
+                            <img src="/assets/img/CYQUR_FingerPrint 1.jpg" alt="Finger print background"
+                                 class="divider__fingerprint-img">
+                        </div>
+                    </div>
+                    <div class="hiddo">
+                        <textarea id="dhead" name="dhead" readonly="readonly"></textarea>
+                        <div class="pp10">
+                            Encrypted private key that is fragmented
+                        </div>
+                        <div>
+                            <div class="h2 hiddo">
+                                Raw Splits
+                            </div><span class="splitty">frag 1:</span> <span id="split1"></span> <span class="splitty">frag 2:</span> <span id="split2"></span> <span class="splitty">
+                                frag
+                                3:
+                            </span> <span id="split3"></span> <span class="splitty">frag 4:</span> <span id="split4"></span> <span class="splitty">frag 5:</span> <span id="split5"></span>
+                            <span class="splitty">frag 6:</span> <span id="split6"></span> <span class="splitty">
+                                frag
+                                7:
+                            </span> <span id="split7"></span> <span class="splitty">
+                                frag
+                                8:
+                            </span> <span id="split8"></span> <span class="splitty">frag 9:</span> <span id="split9"></span> <span class="splitty">frag 10:</span> <span id="split10"></span>
+                            <div class="h2">
+                                Hashed (sha256) value of the encrypted PRK (used as file name):
+                            </div>
+                            <textarea id="split0" name="split0" readonly="readonly"></textarea>
+                            <div class="h2">
+                                Base64 equivalents
+                            </div>
+                            <div class="splitty">
+                                frag 1:
+                            </div>
+                            <textarea id="split641" name="split641" readonly="readonly"></textarea>
+                            <div class="splitty">
+                                frag 2:
+                            </div>
+                            <textarea id="split642" name="split642" readonly="readonly"></textarea>
+                            <div class="splitty">
+                                frag 3:
+                            </div>
+                            <textarea id="split643" name="split643" readonly="readonly"></textarea>
+                            <div class="splitty">
+                                frag 4:
+                            </div>
+                            <textarea id="split644" name="split644" readonly="readonly"></textarea>
+                            <div class="splitty">
+                                frag 5:
+                            </div>
+                            <textarea id="split645" name="split645" readonly="readonly"></textarea>
+                            <div class="splitty">
+                                frag 6:
+                            </div>
+                            <textarea id="split646" name="split646" readonly="readonly"></textarea>
+                            <div class="splitty">
+                                frag 7:
+                            </div>
+                            <textarea id="split647" name="split647" readonly="readonly"></textarea>
+                            <div class="splitty">
+                                frag 8:
+                            </div>
+                            <textarea id="split648" name="split648" readonly="readonly"></textarea>
+                            <div class="splitty">
+                                frag 9:
+                            </div>
+                            <textarea id="split649" name="split649" readonly="readonly"></textarea>
+                            <div class="splitty">
+                                frag 10:
+                            </div>
+                            <textarea id="split6410" name="split6410" readonly="readonly"></textarea>
+                        </div>
+                        <div class="hiddo">
+                            <div class="pp10">
+                                <div class="h2">
+                                    Select Threshold
+                                </div>
+                                <div>
+                                    <div>
+                                        <input checked id="t1" name="toop" type="radio" value="1"> <label for="t1">
+                                            4
+                                            frags / 10 actors - Low Risk
+                                        </label>
+                                    </div>
+                                    <div>
+                                        <input id="t3" name="toop" type="radio" value="2"> <label for="t3">
+                                            2 frags /
+                                            6 actors - Medium Risk
+                                        </label>
+                                    </div>
+                                    <div>
+                                        <input id="t2" name="toop" type="radio" value="3"> <label for="t2">
+                                            3 frags /
+                                            4 actors - High Risk
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="up1">
+                            <div class="pp10"></div>
+                            <div style="font:80%;"></div>
+                            <div>
+                                <div class="parent">
+                                    <div class="bor div1"></div>
+                                    <div class="bor div2"></div>
+                                    <div class="bor div3"></div>
+                                    <div class="bor div4"></div>
+                                    <div class="bor div5"></div>
+                                    <div class="bor div6"></div>
+                                    <div class="bor div7"></div>
+                                    <div class="bor div8"></div>
+                                    <div class="bor div9"></div>
+                                    <div class="bor div10"></div>
+                                    <div class="bor div11"></div>
+                                    <div class="bor div12"></div>
+                                    <div class="bor div13"></div>
+                                    <div class="bor div14"></div>
+                                    <div class="bor div15"></div>
+                                    <div class="bor div16"></div>
+                                    <div class="bor div17"></div>
+                                    <div class="bor div18"></div>
+                                    <div class="bor div19"></div>
+                                    <div class="bor div20"></div>
+                                    <div class="bor div21"></div>
+                                    <div class="bor div22"></div>
+                                    <div class="bor div23"></div>
+                                    <div class="bor div24"></div>
+                                    <div class="bor div25"></div>
+                                    <div class="bor div26"></div>
+                                    <div class="bor div27"></div>
+                                    <div class="bor div28"></div>
+                                    <div class="bor div29"></div>
+                                    <div class="bor div30"></div>
+                                    <div class="bor div31"></div>
+                                    <div class="bor div32"></div>
+                                    <div class="bor div33"></div>
+                                    <div class="bor div34"></div>
+                                    <div class="bor div35"></div>
+                                    <div class="bor div36"></div>
+                                    <div class="bor div37"></div>
+                                    <div class="bor div38"></div>
+                                    <div class="bor div39"></div>
+                                    <div class="bor div40"></div>
+                                    <div class="bor div41"></div>
+                                    <div class="bor div42"></div>
+                                    <div class="bor div43"></div>
+                                    <div class="bor div44"></div>
+                                    <div class="bor div45"></div>
+                                    <div class="bor div46"></div>
+                                    <div class="bor div47"></div>
+                                    <div class="bor div48"></div>
+                                    <div class="bor div49"></div>
+                                    <div class="bor div50"></div>
+                                    <div class="bor div51"></div>
+                                    <div class="bor div52"></div>
+                                    <div class="bor div53"></div>
+                                    <div class="bor div54"></div>
+                                    <div class="bor div55"></div>
+                                    <div class="bor div56"></div>
+                                    <div class="bor div57"></div>
+                                    <div class="bor div58"></div>
+                                    <div class="bor div59"></div>
+                                    <div class="bor div60"></div>
+                                    <div class="bor div61"></div>
+                                    <div class="bor div62"></div>
+                                    <div class="bor div63"></div>
+                                    <div class="bor div64"></div>
+                                    <div class="bor div65"></div>
+                                    <div class="bor div66"></div>
+                                    <div class="bor div67"></div>
+                                    <div class="bor div68"></div>
+                                    <div class="bor div69"></div>
+                                    <div class="bor div70"></div>
+                                    <div class="bor div71"></div>
+                                    <div class="bor div72"></div>
+                                    <div class="bor div73"></div>
+                                    <div class="bor div74"></div>
+                                    <div class="bor div75"></div>
+                                    <div class="bor div76"></div>
+                                    <div class="bor div77"></div>
+                                    <div class="bor div78"></div>
+                                    <div class="bor div79"></div>
+                                    <div class="bor div80"></div>
+                                    <div class="bor div81"></div>
+                                    <div class="bor div82"></div>
+                                    <div class="bor div83"></div>
+                                    <div class="bor div84"></div>
+                                    <div class="bor div85"></div>
+                                    <div class="bor div86"></div>
+                                    <div class="bor div87"></div>
+                                    <div class="bor div88"></div>
+                                    <div class="bor div89"></div>
+                                    <div class="bor div90"></div>
+                                    <div class="bor div91"></div>
+                                    <div class="bor div92"></div>
+                                    <div class="bor div93"></div>
+                                    <div class="bor div94"></div>
+                                    <div class="bor div95"></div>
+                                    <div class="bor div96"></div>
+                                    <div class="bor div97"></div>
+                                    <div class="bor div98"></div>
+                                    <div class="bor div99"></div>
+                                    <div class="bor div100"></div>
+                                    <div class="bor coll div101">
+                                        f1
+                                    </div>
+                                    <div class="bor coll div102">
+                                        f2
+                                    </div>
+                                    <div class="bor coll div103">
+                                        f3
+                                    </div>
+                                    <div class="bor coll div104">
+                                        f4
+                                    </div>
+                                    <div class="bor coll div105">
+                                        f5
+                                    </div>
+                                    <div class="bor coll div106">
+                                        f6
+                                    </div>
+                                    <div class="bor coll div107">
+                                        f7
+                                    </div>
+                                    <div class="bor coll div108">
+                                        f8
+                                    </div>
+                                    <div class="bor coll div109">
+                                        f9
+                                    </div>
+                                    <div class="bor coll div110">
+                                        f10
+                                    </div>
+                                    <div class="bor roww div111">
+                                        1
+                                    </div>
+                                    <div class="bor roww div112">
+                                        2
+                                    </div>
+                                    <div class="bor roww div113">
+                                        3
+                                    </div>
+                                    <div class="bor roww div114">
+                                        4
+                                    </div>
+                                    <div class="bor roww div115">
+                                        5
+                                    </div>
+                                    <div class="bor roww div116">
+                                        6
+                                    </div>
+                                    <div class="bor roww div117">
+                                        7
+                                    </div>
+                                    <div class="bor roww div118">
+                                        8
+                                    </div>
+                                    <div class="bor roww div119">
+                                        9
+                                    </div>
+                                    <div class="bor roww div120">
+                                        10
+                                    </div>
+                                    <div class="bor div121">
+                                        An/frag
+                                    </div>
+                                </div>
+                            </div>
+                            <div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="hiddo" id="section5">
+                <div class="titlex">
+                    <button id="cloudinary-params" class="add-buttons active">Cloudinary</button>
+                    <button id="options-params" class="en65 add-buttons">Options</button>
+                    <button id="data-params" class="en36 add-buttons">Data</button>
+                </div>
+                <div id="cloudinary-settings-container" class="showy active">
+                    <div class="styled-input" id="vset1">
+                        <input class="inputText boxshad ltr en46" required placeholder="Area" id="iset1" name="iset1"
+                               type="text" />
+                        <label><span class="en46"></span></label>
+                    </div>
+                    <div class="styled-input" id="vset2">
+                        <input class="inputText boxshad ltr en47" id="iset2" required type="text" placeholder="Folder" />
+                        <label><span class="en47"></span></label>
+                    </div>
+                    <div class="styled-input" id="vset3">
+                        <input class="inputText boxshad ltr en48" id="iset3" required type="text" placeholder="API" />
+                        <label><span class="en48"></span></label>
+                    </div>
+                    <div class="styled-input" id="vset4">
+                        <input class="inputText boxshad ltr en49" id="iset4" required type="text" placeholder="Secret Key" />
+                        <label><span class="en49"></span></label>
+                    </div>
+                </div>
+                <div id="options-settings-container" class="hiddo settings-options-text">
+                    <div class="flex-container-clean pt36">
+                        <div class="fl2" id="nset5">
+                            <span class="en50">Keep Logged on</span>
+                        </div>
+                        <input type="checkbox" id="klo-choose" name="klo-choose" />
+                    </div>
+                    <div class="flex-container-clean pt36">
+                        <div class="fl2" id="nset5">
+                            <span class="en84">Include tags</span>
+                        </div>
+                        <input type="checkbox" id="include-tags" name="include-tags" />
+                    </div>
+                    <p></p>
+                </div>
+                <div id="data-settings-container" class="hiddo">
+                    <div class="settings-data-section">
+                        <span class="title en37">Downloads</span>
+                        <div class="tac">
+                            <button class="button primary-button" id="backall" name="backall">
+                                <span class="en33"></span>
+                                &darr;
+                            </button>
+                        </div>
+                        <div class="backup-safari-extended hiddo" id="backup-button-container">
+                            <span class="en90"></span>
+                            <a id="backup-button" href="data:text/plain;base64," download="cyqur-backup-settings.txt">Backup</a>
+                        </div>
+                    </div>
+                    <div class="settings-data-section">
+                        <span class="title en85">Reset</span>
+                        <div class="tac">
+                            <button class="button secondary-button" id="delall" name="delall">
+                                <span class="en34"></span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="settings-data-section">
+                        <span class="title en53">Log file</span>
+                        <div class="loglist tac" id="logfiles"></div>
+                        <div></div>
+                    </div>
+                </div>
+                <div class="footerpad"></div>
+            </div>
+        </div>
+
+
+        <div>
+            <div class="footer-container">
+                <div class="footer-action-wrapper">
+                    <a href="#" target="_blank">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                  d="M14 2V7.33333L11.8067 5.14L9.65395 7.29272L8.70728 6.34605L10.86 4.19333L8.66667 2H14ZM6.3464 8.70693L4.19333 10.86L2 8.66667V14H7.33333L5.14 11.8067L7.29307 9.6536L6.3464 8.70693Z"
+                                  fill="#777777" />
+                        </svg>
+                        <span class="extend-button en87">Expand</span>
+                    </a>
+                    <a href="https://cyqur.app/public/documentation.html" target="_blank">
+
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="8" cy="8" r="8" fill="#2C292B" />
+                            <path d="M7.0708 9.084C7.0708 8.668 7.1628 8.324 7.3468 8.052C7.5388 7.78 7.8148 7.48 8.1748 7.152C8.4388 6.912 8.6308 6.712 8.7508 6.552C8.8788 6.384 8.9428 6.196 8.9428 5.988C8.9428 5.692 8.8228 5.46 8.5828 5.292C8.3508 5.116 8.0388 5.028 7.6468 5.028C7.2708 5.028 6.9348 5.108 6.6388 5.268C6.3508 5.42 6.1068 5.636 5.9068 5.916L4.4548 5.064C4.7908 4.552 5.2428 4.156 5.8108 3.876C6.3868 3.596 7.0668 3.456 7.8508 3.456C8.7708 3.456 9.5068 3.652 10.0588 4.044C10.6188 4.436 10.8988 4.98 10.8988 5.676C10.8988 6.004 10.8428 6.292 10.7308 6.54C10.6268 6.788 10.4948 7 10.3348 7.176C10.1828 7.344 9.9828 7.54 9.7348 7.764C9.4388 8.028 9.2228 8.252 9.0868 8.436C8.9508 8.612 8.8828 8.828 8.8828 9.084H7.0708ZM7.9828 12.096C7.6548 12.096 7.3788 11.992 7.1548 11.784C6.9388 11.568 6.8308 11.308 6.8308 11.004C6.8308 10.7 6.9388 10.448 7.1548 10.248C7.3708 10.04 7.6468 9.936 7.9828 9.936C8.3188 9.936 8.5948 10.04 8.8108 10.248C9.0268 10.448 9.1348 10.7 9.1348 11.004C9.1348 11.308 9.0228 11.568 8.7988 11.784C8.5828 11.992 8.3108 12.096 7.9828 12.096Z"
+                                  fill="white" />
+                        </svg>
+                        <span class="help-button en35">
+                            Help
+                        </span>
+                    </a>
+
+                </div>
+                <div class="footer-action-wrapper">
+                    <div class="titlex">
+                        <select class="lang-choose" dir="rtl" name="lang-choose">
+                            <option id="lang1" value="en">
+                                English
+                            </option>
+                            <option id="lang8" value="ar">
+                                عربى
+                            </option>
+                            <option id="lang9" value="bn">
+                                আরবি
+                            </option>
+                            <option id="lang14" value="de">
+                                Deutsch
+                            </option>
+                            <option id="lang4" value="es">
+                                Español
+                            </option>
+                            <option id="lang7" value="fa">
+                                فارسی
+                            </option>
+                            <option id="lang2" value="fr">
+                                Français
+                            </option>
+                            <option id="lang6" value="ga">
+                                Irish
+                            </option>
+                            <option id="lang5" value="hi">
+                                हिंदू
+                            </option>
+                            <option id="lang13" value="id">
+                                Bahasa Indo
+                            </option>
+                            <option id="lang10" value="ja">
+                                日本語
+                            </option>
+                            <option id="lang11" value="pt">
+                                Português
+                            </option>
+                            <option id="lang15" value="ru">
+                                Русский
+                            </option>
+                            <option id="lang3" value="zh">
+                                中国人
+                            </option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div id="pwaIosPopUp" class="pwaIosPopUp">
+                <div id="closeButtonPWA">
+                    +
+                </div>
+                <div class="pwaIosPopUp__title-container">
+                    <img src="./c_assets/c128.png" alt="cyqur logo" id="addPwaIcon">
+                    <h4>Cyqur</h4>
+                </div>
+                <p>
+                    tap
+                    <span>
+                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewBox="0 0 1000 1000" enable-background="new 0 0 1000 1000" xml:space="preserve">
+                        <g><path d="M780,290H640v35h140c19.3,0,35,15.7,35,35v560c0,19.3-15.7,35-35,35H220c-19.2,0-35-15.7-35-35V360c0-19.2,15.7-35,35-35h140v-35H220c-38.7,0-70,31.3-70,70v560c0,38.7,31.3,70,70,70h560c38.7,0,70-31.3,70-70V360C850,321.3,818.7,290,780,290z M372.5,180l110-110.2v552.7c0,9.6,7.9,17.5,17.5,17.5c9.6,0,17.5-7.9,17.5-17.5V69.8l110,110c3.5,3.5,7.9,5,12.5,5s9-1.7,12.5-5c6.8-6.8,6.8-17.9,0-24.7l-140-140c-6.8-6.8-17.9-6.8-24.7,0l-140,140c-6.8,6.8-6.8,17.9,0,24.7C354.5,186.8,365.5,186.8,372.5,180z" /></g>
+						</svg>
+                    </span> and select <span id="pwaIosPopUp__title">Add to Home Screen</span>
+                    to install app on your device
+                </p>
+            </div>
+            <form>
+                <input id="timmystamp" name="timmystamp" type="hidden" value=""> <input id="isupload" name="isupload"
+                                                                                        type="hidden" value="0"> <input id="thedb" name="thedb" type="hidden" value="">
+                <!-- javascript files -->
+
+
+                <script src="./c_assets/js/constants/languageConstants.min.js">
+                </script>
+                <script src="./c_assets/js/constants/parseConstants.min.js">
+                </script>
+                <script src="./c_assets/js/constants/svgstore.min.js">
+                </script>
+                <script src="./c_assets/js/constants/timestamp.min.js">
+                </script>
+                <script src="./c_assets/js/constants/seedConstants.min.js">
+                </script>
+                <script src="./c_assets/js/constants/domElements.min.js">
+                </script>
+                <script src="./c_assets/js/constants/indexedDBConstants.min.js">
+                </script>
+                <script src="./c_assets/js/env.js">
+                </script>
+
+                <script src="./c_assets/js/utils/cryptUtils.min.js">
+                </script>
+                <script src="./c_assets/js/utils/domUtils.min.js">
+                </script>
+                <script src="./c_assets/js/utils/langUtils.min.js">
+                </script>
+                <script src="./c_assets/js/utils/helperFunctions.min.js">
+                </script>
+                <script src="./c_assets/js/utils/cloudUtils.min.js">
+                </script>
+
+                <script src="./c_assets/js/services/fragment.min.js">
+                </script>
+                <script src="./c_assets/js/services/packet.min.js">
+                </script>
+                <script src="./c_assets/js/services/vault.min.js">
+                </script>
+                <script src="./c_assets/js/services/indexedDB.min.js">
+                </script>
+
+                <script src="./c_assets/js/controllers/navTabsController.min.js"></script>
+                <script src="./c_assets/js/controllers/addController.min.js">
+                </script>
+                <script src="./c_assets/js/controllers/settingsController.min.js">
+                </script>
+                <script src="./c_assets/js/controllers/signInController.min.js">
+                </script>
+                <script src="./c_assets/js/controllers/vaultController.min.js">
+                </script>
+                <script src="./c_assets/js/controllers/viewDecryptController.min.js">
+                </script>
+
+
+                <script src="./c_assets/js/uploadsettings.min.js">
+                </script>
+                <script src="./c_assets/js/token.min.js">
+                </script>
+                <script src="./c_assets/js/cloudinary.min.js">
+                </script>
+                <script src="./c_assets/js/uploadingdb.min.js">
+                </script>
+                <script src="./c_assets/js/internet.min.js">
+                </script>
+                <script src="./c_assets/js/validator.min.js">
+                </script>
+            </form>
+</body>
+
+</html>

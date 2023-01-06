@@ -1,22 +1,22 @@
 ﻿
 // increase `version` number to force cache update when publishing a new release
-const version = 'v1.0000041';
+const version = 'v1.0000043';
 
 const config = {
     cacheRemote: true,
     version: version + '::',
     preCachingItems: [
-        './html/offline.html',
-        './html/404.html',
-        './js/sw.js'
+        './c_assets/html/offline.html',
+        './c_assets/html/404.html',
+        './minjs/sw.js'
 
     ],
     blacklistCacheItems: [
         '../c_index.html'
     ],
     offlineImage: '<svg role="img" aria-labelledby="offline-title"' + ' viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">' + '<title id="offline-title">Offline</title>' + '<g fill="none" fill-rule="evenodd"><path fill="#aaa" d="M0 0h400v300H0z"/>' + '<text fill="#222" font-family="monospace" font-size="32" font-weight="bold">' + '<tspan x="136" y="156">offline</tspan></text></g></svg>',
-    offlinePage: 'offline.html',
-    notFoundPage: '404.html'
+    offlinePage: '/c_assets/html/offline.html',
+    notFoundPage: '/c_assets/html/404.html'
 };
 
 function cacheName(key, opts) {

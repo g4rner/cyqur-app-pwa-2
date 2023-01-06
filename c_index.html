@@ -6,21 +6,21 @@
 <head>
     <title>Safely Store your Secrets</title>
     <meta charset="UTF-8">
-    <link href="./c_assets/style/fonts.min.css" rel="stylesheet">
-    <link href="./c_assets/style/style.min.css" rel="stylesheet">
-    <link href="./c_assets/style/colors.min.css" rel="stylesheet">
-    <link href="./c_assets/style/wwwstyle.min.css" rel="stylesheet">
-    <link href="./c_assets/style/pwa-style.css?v=05012023" rel="stylesheet">
-    <link rel="manifest" href="/c_assets/manifest.json" crossorigin="use-credentials">
+    <link href="./c_assets/mincss/fonts.min.css" rel="stylesheet">
+    <link href="./c_assets/mincss/style.min.css" rel="stylesheet">
+    <link href="./c_assets/mincss/colors.min.css" rel="stylesheet">
+    <link href="./c_assets/mincss/wwwstyle.min.css" rel="stylesheet">
+    <link href="./c_assets/mincss/pwa-style.min.css?v=05012023" rel="stylesheet">
+    <link rel="manifest" href="./c_assets/manifest.json" crossorigin="use-credentials">
     <meta name="theme-color" content="#317EFB" />
     <!-- ios support-->
-    <link rel="apple-touch-icon" href="/c_assets/style/img/c128.png">
+    <link rel="apple-touch-icon" href="/c_assets/img/c128.png">
     <meta name="apple-mobile-web-app-status-bar" content="#7fff00">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <script type="text/javascript">
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', function () {
-                navigator.serviceWorker.register('/c_assets/js/sw.js').then(function (registration) {
+                navigator.serviceWorker.register('/c_assets/minjs/sw.js').then(function (registration) {
                     // Registration was successful
                     console.log('ServiceWorker registration successful with scope: ', registration.scope);
                 }, function (err) {
@@ -228,7 +228,7 @@
                         </div>
                     </div>
                     <div class="divider__fingerPrint">
-                        <img src="/assets/img/CYQUR_FingerPrint 1.jpg" alt="fingerPrint background"
+                        <img src="./c_assets/img/CYQUR_FingerPrint 1.jpg" alt="fingerPrint background"
                              class="divider__fingerprint-img">
                     </div>
                     <div class="meta__container">
@@ -669,7 +669,7 @@
                         </div>
                         <div id="add-fingerprint" class="showy divider__fingerPrint"
                              style="max-height:500px; height:100%;">
-                            <img src="/assets/img/CYQUR_FingerPrint 1.jpg" alt="Finger print background"
+                            <img src="./c_assets/img/CYQUR_FingerPrint 1.jpg" alt="Finger print background"
                                  class="divider__fingerprint-img">
                         </div>
                     </div>
@@ -1093,7 +1093,7 @@
                     +
                 </div>
                 <div class="pwaIosPopUp__title-container">
-                    <img src="./c_assets/c128.png" alt="cyqur logo" id="addPwaIcon">
+                    <img src="./c_assets/img/c128.png" alt="cyqur logo" id="addPwaIcon">
                     <h4>Cyqur</h4>
                 </div>
                 <p>
@@ -1112,67 +1112,67 @@
                 <!-- javascript files -->
 
 
-                <script src="./c_assets/js/constants/languageConstants.min.js">
+                <script src="./c_assets/minjs/languageConstants.min.js">
                 </script>
-                <script src="./c_assets/js/constants/parseConstants.min.js">
+                <script src="./c_assets/minjs/parseConstants.min.js">
                 </script>
-                <script src="./c_assets/js/constants/svgstore.min.js">
+                <script src="./c_assets/minjs/svgstore.min.js">
                 </script>
-                <script src="./c_assets/js/constants/timestamp.min.js">
+                <script src="./c_assets/minjs/timestamp.min.js">
                 </script>
-                <script src="./c_assets/js/constants/seedConstants.min.js">
+                <script src="./c_assets/minjs/seedConstants.min.js">
                 </script>
-                <script src="./c_assets/js/constants/domElements.min.js">
+                <script src="./c_assets/minjs/domElements.min.js">
                 </script>
-                <script src="./c_assets/js/constants/indexedDBConstants.min.js">
+                <script src="./c_assets/minjs/indexedDBConstants.min.js">
                 </script>
-                <script src="./c_assets/js/env.js">
-                </script>
-
-                <script src="./c_assets/js/utils/cryptUtils.min.js">
-                </script>
-                <script src="./c_assets/js/utils/domUtils.min.js">
-                </script>
-                <script src="./c_assets/js/utils/langUtils.min.js">
-                </script>
-                <script src="./c_assets/js/utils/helperFunctions.min.js">
-                </script>
-                <script src="./c_assets/js/utils/cloudUtils.min.js">
+                <script src="./c_assets/minjs/env.min.js">
                 </script>
 
-                <script src="./c_assets/js/services/fragment.min.js">
+                <script src="./c_assets/minjs/cryptUtils.min.js">
                 </script>
-                <script src="./c_assets/js/services/packet.min.js">
+                <script src="./c_assets/minjs/domUtils.min.js">
                 </script>
-                <script src="./c_assets/js/services/vault.min.js">
+                <script src="./c_assets/minjs/langUtils.min.js">
                 </script>
-                <script src="./c_assets/js/services/indexedDB.min.js">
+                <script src="./c_assets/minjs/helperFunctions.min.js">
                 </script>
-
-                <script src="./c_assets/js/controllers/navTabsController.min.js"></script>
-                <script src="./c_assets/js/controllers/addController.min.js">
-                </script>
-                <script src="./c_assets/js/controllers/settingsController.min.js">
-                </script>
-                <script src="./c_assets/js/controllers/signInController.min.js">
-                </script>
-                <script src="./c_assets/js/controllers/vaultController.min.js">
-                </script>
-                <script src="./c_assets/js/controllers/viewDecryptController.min.js">
+                <script src="./c_assets/minjs/cloudUtils.min.js">
                 </script>
 
+                <script src="./c_assets/minjs/fragment.min.js">
+                </script>
+                <script src="./c_assets/minjs/packet.min.js">
+                </script>
+                <script src="./c_assets/minjs/vault.min.js">
+                </script>
+                <script src="./c_assets/minjs/indexedDB.min.js">
+                </script>
 
-                <script src="./c_assets/js/uploadsettings.min.js">
+                <script src="./c_assets/minjs/navTabsController.min.js"></script>
+                <script src="./c_assets/minjs/addController.min.js">
                 </script>
-                <script src="./c_assets/js/token.min.js">
+                <script src="./c_assets/minjs/settingsController.min.js">
                 </script>
-                <script src="./c_assets/js/cloudinary.min.js">
+                <script src="./c_assets/minjs/signInController.min.js">
                 </script>
-                <script src="./c_assets/js/uploadingdb.min.js">
+                <script src="./c_assets/minjs/vaultController.min.js">
                 </script>
-                <script src="./c_assets/js/internet.min.js">
+                <script src="./c_assets/minjs/viewDecryptController.min.js">
                 </script>
-                <script src="./c_assets/js/validator.min.js">
+
+
+                <script src="./c_assets/minjs/uploadsettings.min.js">
+                </script>
+                <script src="./c_assets/minjs/token.min.js">
+                </script>
+                <script src="./c_assets/minjs/cloudinary.min.js">
+                </script>
+                <script src="./c_assets/minjs/uploadingdb.min.js">
+                </script>
+                <script src="./c_assets/minjs/internet.min.js">
+                </script>
+                <script src="./c_assets/minjs/validator.min.js">
                 </script>
             </form>
 </body>

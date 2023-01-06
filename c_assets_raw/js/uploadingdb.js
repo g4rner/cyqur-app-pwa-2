@@ -1,7 +1,7 @@
 function updateThumbnail(e, r) {
     let t = e.querySelector(".drop-zone__thumb");
     e.querySelector(".drop-zone__prompt") && e.querySelector(".drop-zone__prompt").remove(), Object.keys(r).map((function(n, a) {
-        t = document.createElement("div"), t.classList.add("drop-zone__thumb"), e.appendChild(t), t.dataset.label = r[n] ? t.innerHTML += r[n].name
+        t = document.createElement("div"), t.classList.add("drop-zone__thumb"), e.appendChild(t), t.dataset.label = r[n] ? .name, t.innerHTML += r[n].name
     }))
 }
 document.querySelectorAll(".drop-zone__input").forEach((e => {

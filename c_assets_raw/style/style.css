@@ -132,7 +132,9 @@ textarea:focus~span {
 .centergutter {
     width: 100%
 }
-
+.pt2{
+    padding-top:2px;
+}
 .wallrow {
     background-color: #fff;
     border: 1px solid #dcdcdc;

@@ -85,23 +85,14 @@ startOverPacketsButton = {
     query: "#packetclear",
     eventListenerType: "click",
     callback: () => {
-        (document.getElementById("crudclear").hidden = !0),
-            (document.getElementById("crud").hidden = !1),
-            (document.getElementById("messc").textContent = ""),
+     
             (document.getElementById("fmess").textContent = ""),
-            (document.getElementById("tags").value = ""),
-            (document.getElementById("ddata").value = ""),
-            (document.getElementById("edata").value = "");
+  
             // remove files uploaded
             (document.querySelector(".drop-zone__input").value = "");
             (document.querySelectorAll('.drop-zone__thumb').forEach(e => e.remove()));
-            // remove seed phrases
-        for (let e = 0; e < seedFieldsA.length; e++) {
-            const t = document.getElementById(seedFieldsA[e]);
-            (t.value = ""), t.classList.remove("greenback"), t.classList.remove("redback");
-            const d = document.getElementById(seedFieldsB[e]);
-            (d.value = ""), d.classList.remove("greenback"), d.classList.remove("redback");
-        }
+      
+       
     },
 },
 onGeneralClick = {

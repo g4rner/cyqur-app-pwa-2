@@ -132,6 +132,41 @@ onSeedPhrasesClick = {
             applyLanguage();
     },
 },
+deleteAllClickPrompt = {
+    query:"#deleteAll",
+    eventListenerType: "click",
+    callback:()=>{                         
+        document.getElementById("zapall").classList.replace("hiddo", "showy");  
+        document.getElementById("promptn").classList.replace("hiddo", "showy"); 
+        document.getElementById("prompty").classList.replace("hiddo", "showy");        
+    }
+},
+deleteAllClickPromptYes = {
+    query:"#prompty",
+    eventListenerType: "click",
+    callback:()=>{                         
+       console.log("reload"); 
+       delete localStorage.masterpassword, localStorage.clear(), sessionStorage.clear(), deleteAllDataFromDB(), window.location.reload();          
+    }
+},
+deleteAllClickPromptNo = {
+    query:"#promptn",
+    eventListenerType: "click",
+    callback: async e => {  
+        console.log("n"); 
+        document.getElementById("zapall").classList.replace("showy", "hiddo");                         
+        document.getElementById("promptn").classList.replace("showy", "hiddo"); 
+        document.getElementById("prompty").classList.replace("showy", "hiddo");        
+    }
+},
+deleteAllClick = {
+    query:"#zapall",
+    eventListenerType: "click",
+    callback:()=>{  
+        delete localStorage.masterpassword, localStorage.clear(), sessionStorage.clear(), deleteAllDataFromDB(), window.location.reload();      
+       
+    }
+},
 onImportPacketsClick = {
     query: "#addImportPackets",
     eventListenerType: "click",
@@ -187,6 +222,10 @@ startObservingTasks = () => {
 };
 (() => {
 addEvtListener(secretInputEvent),
+addEvtListener(deleteAllClickPrompt),
+addEvtListener(deleteAllClickPromptYes),
+addEvtListener(deleteAllClickPromptNo),
+addEvtListener(deleteAllClick),
     addEvtListener(randomButton),
     addEvtListener(startOverButton),
     addEvtListener(startOverPacketsButton),  

@@ -96,6 +96,29 @@ async function paste(n) {
     });
 }
 const generateVaultBlock = ({ tags: t, puk: i, dateString: n }) =>
+        ` 
+        <div class='flex-container-clean'>
+        <div id='tagdatebox' class='fl1 en40 vhed1'>Created</div>
+        <div class='en25 vhed2'>Tags</div>
+        </div>
+
+        <div class='flex-container-clean'>
+        <div class='fl1 vrow1'>${n.toString()}</div>
+        <div class='vrow2'>
+        <textarea class='vrow2 tagsarea taggle ltr' id='${i}' name='${i}'>${t}</textarea></div>
+        </div>
+        `,
+    generateFragmentsBlock = (n) => {
+        let t = "<div class='flex-container-clean'><div class='fl1 tagtag'># 1</div><div class='fl2'><textarea class='tagsarea'>";
+        return (
+            n.forEach((n, i) => {
+                t += i ? `</textarea></div></div><div class='flex-container-clean'><div class='fl1 tagtag'># ${++i}</div><div class='fl2'><textarea class='tagsarea'>${n}` : `${n}`;
+            }),
+            (t += "</textarea></div></div>"),
+            t
+        );
+    }
+/* const generateVaultBlock = ({ tags: t, puk: i, dateString: n }) =>
         `<div id='tagdatebox' class='dataBox'><div class='flex-container-clean'><div class='fl1 tagtag en25'>Tags</div><div class='fl2'><textarea class='tagsarea taggle ltr' id='${i}' name='${i}'>${t}</textarea></div></div><div class='flex-container-clean'><div class='fl1 en40'>Created</div><div class='fl2'>${n.toString()}</div></div></div></div>`,
     generateFragmentsBlock = (n) => {
         let t = "<div class='flex-container-clean'><div class='fl1 tagtag'># 1</div><div class='fl2'><textarea class='tagsarea'>";
@@ -106,7 +129,9 @@ const generateVaultBlock = ({ tags: t, puk: i, dateString: n }) =>
             (t += "</textarea></div></div>"),
             t
         );
-    },
+    }, */
+  
+   ,
     generateDataInfoFunction = ({ puk: t, encryptedSecret: r, transactionHash: n, exchangeToken: i }) => `<details>
   <summary><span class='en17'></span></summary>
   <div class='flex-container-clean'>

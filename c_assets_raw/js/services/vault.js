@@ -20,7 +20,7 @@ const onUpgradeNeededHandler = (e) => {
         var n = document.getElementById("gridmess"),
             a = document.getElementById("countinvault"),
             d = document.getElementById("secretsCount");
-        e ? ((n.innerHTML = '<span class="en51">Vault is empty</span>'), (d.textContent = "0")) : ((n.textContent = ""), (a.textContent = t), (d.textContent = t)), applyLanguage();
+        e ? ((n.innerHTML = '<span class="en51">Vault is empty</span>'), (d.textContent = "0"), (a.textContent = "0")) : ((n.textContent = ""), (a.textContent = t), (d.textContent = t)), applyLanguage();
     },
     cursorRequestSuccessHandler = ({ target: { result: e } }) => {
         e && (renderChain(e.value), e.continue());

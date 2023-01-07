@@ -1,6 +1,6 @@
 ﻿
 // increase `version` number to force cache update when publishing a new release
-const version = 'v1.0000045';
+const version = 'v1.0000049';
 
 const config = {
     cacheRemote: true,

@@ -2,7 +2,7 @@
 Cyqur PWA
 
 Secret Sharing with offline functionality  
-https://cyqur.app/index.html  
+https://cyqur.app/c_index.html  
 Reengineered from the chrome extension (CRX)
 
 13742.x  
@@ -15,7 +15,8 @@ USB / Flash standalone
 
 ## This Repo
 WWW / Web app (for smartphone devices mostly)  
-
+Stored as a zip file with sha1 checksum, file size and date 
+  
 ### Aim
 Fast  
 No dependency on libraries

@@ -42,6 +42,7 @@ const checkHowMuchFragmentsHasLeft = () => {
             t.includes("f") && "" === importedObject[t] && ++e;
         }),
         alert(`${e} fragments left to import`),
+        console.log(t + ":" +e),
         (document.getElementById("fmess").innerHTML = 10 - e + '/10 <span class="en16"></span>'),
         e
     );
@@ -97,7 +98,7 @@ function logFile(e) {
     for (const o of e) {
         const e = JSON.parse(o.value);
         if (importedObject.puk !== e.puk) {
-            alert("Error: not from the same chain"), (t = !0), resetObject();
+            alert("Error: not from the same chain"), (t = !0), resetObject(); 
             break;
         }
         if (e.type.includes("CR")) {

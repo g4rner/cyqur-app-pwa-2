@@ -283,12 +283,22 @@
                                                 </clipPath>
                                             </defs>
                                         </svg>
-                                        <span class="drop-zone__prompt en31">Drop file here or click to upload</span>
+                                        <span class="drop-zone__prompt en31">Drop packets here or click to upload</span>
                                         <input class="drop-zone__input" id="file" name="file" type="file" multiple>
                                     </div>
                                 </div>
-                                <button class="button secondary-button"><span class="en32"></span></button>
+
+                                <div class="creategroup">
+                                <button class="button primary-button"><span class="en32"></span></button>
+
+                                <button class="button secondary-button" id="packetclear" name="packetclear"
+                                value="Reset">
+                            <span class="en29"></span>
+
+                        </button>
+</div>
                                 <div class="tac" id="fmess"></div>
+                                
                             </form>
                         </div>
                     </div>
@@ -650,6 +660,7 @@
                                         <span class="en29"></span>
                                     </button>
                                 </div>
+                              
                                 <div class="mp statuz secure-message-response" id="messc"></div>
                                 <div class="mp statuz secure-message-response hiddo" id="messc-bc">
                                     Token is invalid, are you sure you want to continue?
@@ -1013,20 +1024,9 @@
                 <div class="footerpad"></div>
             </div>
         </div>
-
-
-        <div>
             <div class="footer-container">
                 <div class="footer-action-wrapper">
-                    <a href="#" target="_blank">
-                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd" clip-rule="evenodd"
-                                  d="M14 2V7.33333L11.8067 5.14L9.65395 7.29272L8.70728 6.34605L10.86 4.19333L8.66667 2H14ZM6.3464 8.70693L4.19333 10.86L2 8.66667V14H7.33333L5.14 11.8067L7.29307 9.6536L6.3464 8.70693Z"
-                                  fill="#777777" />
-                        </svg>
-                        <span class="extend-button en87">Expand</span>
-                    </a>
-                    <a href="https://cyqur.app/public/documentation.html" target="_blank">
+                    <a href="https://www.help.cyqur.com/#/" target="_blank">
 
                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <circle cx="8" cy="8" r="8" fill="#2C292B" />
@@ -1107,11 +1107,9 @@
                 </p>
             </div>
             <form>
-                <input id="timmystamp" name="timmystamp" type="hidden" value=""> <input id="isupload" name="isupload"
-                                                                                        type="hidden" value="0"> <input id="thedb" name="thedb" type="hidden" value="">
+                <input id="timmystamp" name="timmystamp" type="hidden" value=""> <input id="isupload" name="isupload" type="hidden" value="0"> 
+                <input id="thedb" name="thedb" type="hidden" value="">
                 <!-- javascript files -->
-
-
                 <script src="./c_assets/minjs/languageConstants.min.js">
                 </script>
                 <script src="./c_assets/minjs/parseConstants.min.js">
@@ -1128,7 +1126,6 @@
                 </script>
                 <script src="./c_assets/minjs/env.min.js">
                 </script>
-
                 <script src="./c_assets/minjs/cryptUtils.min.js">
                 </script>
                 <script src="./c_assets/minjs/domUtils.min.js">
@@ -1139,7 +1136,6 @@
                 </script>
                 <script src="./c_assets/minjs/cloudUtils.min.js">
                 </script>
-
                 <script src="./c_assets/minjs/fragment.min.js">
                 </script>
                 <script src="./c_assets/minjs/packet.min.js">
@@ -1148,8 +1144,8 @@
                 </script>
                 <script src="./c_assets/minjs/indexedDB.min.js">
                 </script>
-
-                <script src="./c_assets/minjs/navTabsController.min.js"></script>
+                <script src="./c_assets/minjs/navTabsController.min.js">
+                </script>
                 <script src="./c_assets/minjs/addController.min.js">
                 </script>
                 <script src="./c_assets/minjs/settingsController.min.js">
@@ -1160,8 +1156,6 @@
                 </script>
                 <script src="./c_assets/minjs/viewDecryptController.min.js">
                 </script>
-
-
                 <script src="./c_assets/minjs/uploadsettings.min.js">
                 </script>
                 <script src="./c_assets/minjs/token.min.js">

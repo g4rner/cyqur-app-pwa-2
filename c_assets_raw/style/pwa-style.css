@@ -84,9 +84,5 @@
 
 
 .footer-container {
-  justify-content: end;
-}
-
-.footer-container a {
-  display: none;
+ border-top:1px solid whitesmoke;
 }

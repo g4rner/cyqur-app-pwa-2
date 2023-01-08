@@ -62,6 +62,7 @@ pwa service worker is edited out
 html that prompts user to install as app is retained although maybe redundant  
 env.min.js has the latest version number (same for both crx and pwa)  
   
+<base href="./c_assets/" />  
 pwa file is c_index.html  
 crx file is c_crx.html  
   

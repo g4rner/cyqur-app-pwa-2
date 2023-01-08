@@ -42,11 +42,9 @@ async function renderChain({ tags: i, puk: a, timeStamp: o, f1: f, f2: l, f3: t,
         },
         !1
     );
-    b.href = "#";
     b.addEventListener("click", () => {
         (document.getElementById("dedata").value = ""), (document.getElementById("pastedin").value = ""), (document.getElementById("pastedin").value = st), decrypt(), onPPChanged("2"), window.scrollTo(0, 0);
     });
-    k.href = "#";
     k.innerHTML = trashCan;
     k.insertAdjacentHTML("beforeend", '<p class="en83">Delete</p>');
     b.innerHTML =

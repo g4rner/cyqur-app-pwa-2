@@ -17,19 +17,7 @@
     <link rel="apple-touch-icon" href="/c_assets/img/c128.png">
     <meta name="apple-mobile-web-app-status-bar" content="#7fff00">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <script type="text/javascript">
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', function () {
-                navigator.serviceWorker.register('/c_assets/minjs/sw.js').then(function (registration) {
-                    // Registration was successful
-                    console.log('ServiceWorker registration successful with scope: ', registration.scope);
-                }, function (err) {
-                    // registration failed :(
-                    console.log('ServiceWorker registration failed: ', err);
-                });
-            });
-        }
-
+    <script src="./c_assets/minjs/runsw.min.js">
     </script>
 </head>
 

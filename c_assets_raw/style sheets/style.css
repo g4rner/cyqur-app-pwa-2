@@ -74,6 +74,9 @@ textarea:focus~span {
     -webkit-transition: all 75ms ease;
     transition: all 75ms ease
 }
+.fwind{
+    margin-top:1px;
+}
 .vhed1, .vhed2{
     border-bottom: none;
     font-family: MontserratBold;

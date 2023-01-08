@@ -62,7 +62,7 @@ pwa service worker is edited out
 html that prompts user to install as app is retained although maybe redundant  
 env.min.js has the latest version number (same for both crx and pwa)  
   
-<base href="./c_assets/" />  
+<base href="c_assets/" />  
 pwa file is c_index.html  
 crx file is c_crx.html  
   
@@ -77,3 +77,6 @@ Docs are in md format (in a github repo) and use a third party framework to pars
 Ideally these should be part of the app and not rely on third parties  
 Cannot find an open source md parser so will probably use html directly  
 
+## Resources we used
+https://itero.plasmo.com/tools/generate-keypairs  
+https://developer.mozilla.org/en-US/docs/Web/API/Crypto  

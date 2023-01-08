@@ -3,6 +3,7 @@
     "version": "1.1.1.1",
     "description": "Secure secrets storage",
     "manifest_version": 3,
+    "key":"MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAsVvG+4c6bSwOHZXdip3P866TgGp6kF4qeG/WikVxxsHXK2Tgf8mjptgDgoQmvNydo11tU/Z9EDeTwpZc1XNfoDcmyPFLAEUgsA70tfvSQQCjQ8ozhrj4k1SGNEk7Wyo1hjcNojQMENXGKsMGj/5pWxiAFshaHoCiFi3S2cMN2aKsqah7bAi1VsGuVJy9p/YHGkVXy5+j6YMC5oCNhQtbwnFwJa3Agdtm3AIEUwXcN/PKYgMj8xCKsWdq01A5zPw/QIUTUDdbk9TefIY/tuODcwWgEHEvJs9PVIEcR3i2nlmNC17MyNzkhZ+9TqV2lqcCboUtsHIUfFqG4mYr/HfPDwIDAQAB",
     "icons": {
       "16": "\/c_assets\/img\/c16.png",
       "32": "\/c_assets\/img\/c32.png",

@@ -1,20 +1,22 @@
 {
     "name": "Cyqur",
-    "version": "0.0.0.2",
+    "version": "crx",
     "description": "Secure secrets storage",
     "manifest_version": 3,
     "icons": {
       "16": "\/c_assets\/img\/c16.png",
       "32": "\/c_assets\/img\/c32.png",
       "128": "\/c_assets\/img\/c128.png",
+      "144": "\/c_assets\/img\/c144.png",    
       "512": "\/c_assets\/img\/c512.png"
     },
     "action": {
-      "default_popup": "./index.html",
+      "default_popup": "./c_index.html",
       "default_icons": {
         "16": "\/c_assets\/img\/c16.png",
         "32": "\/c_assets\/img\/c32.png",
         "128": "\/c_assets\/img\/c128.png",
+        "144": "\/c_assets\/img\/c144.png",    
         "512": "\/c_assets\/img\/c512.png"
       },
       "permissions": [
